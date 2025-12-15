@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_bot">
+  <!-- RGBD Camera -->
+  <xacro:macro name="camera_sensor" params="">
+    <!-- CAMERA LINK -->
+    <link name="camera_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.02 0.09 0.025"/>
+        </geometry>
+        <material name="camera_color">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.02 0.09 0.025"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.15"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+          ixx="2.9166666666666664e-05" ixy="0" ixz="0"
+          iyy="2.9166666666666664e-05" iyz="0"
+          izz="1.25e-04"/>
+      </inertial>
+    </link>
+
+    <!-- JOINT -->
+    <joint name="camera_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="camera_link"/>
+      <origin xyz="0.28 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <!-- OPTICAL FRAME -->
+    <link name="camera_optical_frame"/>
+
+    <joint name="camera_optical_joint" type="fixed">
+      <parent link="camera_link"/>
+      <child link="camera_optical_frame"/>
+      <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+    <!-- Gazebo material -->
+    <gazebo reference="camera_link">
+      <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!-- SENSOR - Reference base_link since fixed joints get lumped -->
+    <gazebo reference="base_link">
+      <sensor name="rgbd_camera" type="depth">
+        <pose>0.28 0 0.05 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <visualize>false</visualize>
+        <camera>
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>10.0</far>
+          </clip>
+        </camera>
+        <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
+          <ros>
+            <remapping>~/image_raw:=/camera/image_raw</remapping>
+            <remapping>~/depth/image_raw:=/camera/depth/image_raw</remapping>
+            <remapping>~/camera_info:=/camera/camera_info</remapping>
+            <remapping>~/depth/camera_info:=/camera/depth/camera_info</remapping>
+            <remapping>~/points:=/camera/points</remapping>
+          </ros>
+          <frame_name>camera_optical_frame</frame_name>
+          <min_depth>0.1</min_depth>
+          <max_depth>10.0</max_depth>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+  </xacro:macro>
+</robot>

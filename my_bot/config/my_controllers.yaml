@@ -1,0 +1,97 @@
+# PART 1: Controller Manager Settings
+controller_manager:
+  ros__parameters:
+    update_rate: 30              # How fast to run (30 Hz)
+    use_sim_time: true           # Use Gazebo's clock
+
+    # Declare which controllers exist
+    diff_cont:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_broad:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+# PART 2: Diff Drive Controller Settings
+diff_cont:
+  ros__parameters:
+    publish_rate: 50.0           # Publish odom at 50 Hz
+    
+    base_frame_id: base_link     # Robot's base frame
+    odom_frame_id: odom          # Odometry frame
+    
+    # Which joints are the wheels
+    left_wheel_names: ['left_wheel_joint']
+    right_wheel_names: ['right_wheel_joint']
+
+    # Robot dimensions (YOUR ROBOT'S VALUES)
+    wheel_separation: 0.6        # Distance between wheels (meters)
+    wheel_radius: 0.05           # Wheel radius (meters)
+
+    # Odometry settings
+    open_loop: false             # Use encoder feedback
+    enable_odom_tf: true         # Publish odom → base_link transform
+    
+    # Use simple velocity commands (not timestamped)
+    use_stamped_vel: false
+
+
+# PART 3: Joint State Broadcaster Settings
+joint_broad:
+  ros__parameters:               # No special params needed
+```
+
+### Breakdown:
+
+| Section | What it does |
+|---------|--------------|
+| `controller_manager` | Global settings, declares controllers |
+| `update_rate: 30` | Control loop runs 30 times per second |
+| `use_sim_time: true` | Sync with Gazebo's clock |
+| `diff_cont: type:` | "Use the diff drive controller algorithm" |
+| `joint_broad: type:` | "Use the joint state broadcaster" |
+| `wheel_separation` | Distance between your wheels (0.6m) |
+| `wheel_radius` | Your wheel radius (0.05m) |
+| `enable_odom_tf` | Publishes odometry transform |
+| `use_stamped_vel: false` | Accept simple `/cmd_vel` messages |
+
+---
+
+## How They Work Together
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         GAZEBO                                  │
+│                                                                 │
+│  ros2_control.xacro says:                                      │
+│  "Load libgazebo_ros2_control.so"                              │
+│  "Use config from my_controllers.yaml"                         │
+│                                                                 │
+│         ┌─────────────────────────────────────┐                │
+│         │      CONTROLLER MANAGER             │                │
+│         │      (from my_controllers.yaml)     │                │
+│         │                                     │                │
+│         │  ┌─────────────┐  ┌──────────────┐ │                │
+│         │  │ diff_cont   │  │ joint_broad  │ │                │
+│         │  │             │  │              │ │                │
+│         │  │ Takes       │  │ Reads wheel  │ │                │
+│         │  │ /cmd_vel    │  │ positions &  │ │                │
+│         │  │ Outputs     │  │ publishes to │ │                │
+│         │  │ wheel speeds│  │ /joint_states│ │                │
+│         │  └──────┬──────┘  └──────┬───────┘ │                │
+│         │         │                │         │                │
+│         │         ▼                ▼         │                │
+│         │  ┌─────────────────────────────┐  │                │
+│         │  │    HARDWARE INTERFACE       │  │                │
+│         │  │    (from ros2_control.xacro)│  │                │
+│         │  │                             │  │                │
+│         │  │  left_wheel_joint/velocity  │  │                │
+│         │  │  right_wheel_joint/velocity │  │                │
+│         │  └──────────────┬──────────────┘  │                │
+│         └─────────────────┼─────────────────┘                │
+│                           │                                   │
+│                           ▼                                   │
+│                    ┌──────────────┐                          │
+│                    │   WHEELS     │                          │
+│                    │   (in sim)   │                          │
+│                    └──────────────┘                          │
+└─────────────────────────────────────────────────────────────────┘

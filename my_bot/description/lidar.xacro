@@ -10,31 +10,48 @@
         <geometry>
           <cylinder length="0.05" radius="0.05"/>
         </geometry>
+        <material name="lidar_color">
+          <color rgba="1 0 0 1"/>
+        </material>
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <cylinder length="0.01" radius="0.05"/>
+          <cylinder length="0.05" radius="0.05"/>
         </geometry>
       </collision>
+
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+          ixx="2.9166666666666664e-05" ixy="0" ixz="0"
+          iyy="2.9166666666666664e-05" iyz="0"
+          izz="1.25e-04"/>
+      </inertial>
     </link>
 
-    <!-- FIXED JOINT -->
+    <!-- Gazebo material for LIDAR -->
+    <gazebo reference="laser_frame">
+      <material>Gazebo/Red</material>
+    </gazebo>
+
+    <!-- FIXED JOINT - Mounted on top of chassis -->
     <joint name="laser_joint" type="fixed">
       <parent link="base_link"/>
       <child link="laser_frame"/>
-      <origin xyz="0 0 0.25" rpy="0 0 0"/>
+      <!-- Top of chassis (0.05) + half LIDAR height (0.025) = 0.075, using 0.08 for clearance -->
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
     </joint>
 
-    <!-- SENSOR MUST BE ATTACHED TO A LINK -->
+    <!-- LIDAR SENSOR -->
     <gazebo reference="laser_frame">
-
       <sensor name="laser" type="ray">
         <pose>0 0 0 0 0 0</pose>
         <always_on>true</always_on>
         <update_rate>10</update_rate>
-        <visualize>true</visualize>
+        <visualize>false</visualize> <!-- Turn off Gazebo ray visualization -->
 
         <ray>
           <scan>
@@ -46,26 +63,33 @@
             </horizontal>
           </scan>
           <range>
-            <min>0.1</min>
+            <!-- Increased min range to avoid ground detection -->
+            <min>0.25</min>
             <max>10.0</max>
             <resolution>0.01</resolution>
           </range>
-        </ray>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+ 	</ray>
 
-        <!-- ROS PLUGIN -->
-        <plugin name="laser_plugin" filename="libgazebo_ros_ray_sensor.so">
+
+
+
+        <!-- ROS 2 PLUGIN -->
+        <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
           <ros>
-            <namespace>/</namespace>
-            <topicName>/scan</topicName>
+            <remapping>~/out:=scan</remapping>
           </ros>
-          <frameName>laser_frame</frameName>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>laser_frame</frame_name>
         </plugin>
 
       </sensor>
-
     </gazebo>
 
   </xacro:macro>
 
 </robot>
-
