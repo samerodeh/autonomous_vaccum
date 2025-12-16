@@ -1,0 +1,90 @@
+[0.000000] (-) TimerEvent: {}
+[0.000705] (articubot_one) JobQueued: {'identifier': 'articubot_one', 'dependencies': OrderedDict()}
+[0.001248] (articubot_one) JobStarted: {'identifier': 'articubot_one'}
+[0.098537] (articubot_one) JobProgress: {'identifier': 'articubot_one', 'progress': 'cmake'}
+[0.099148] (-) TimerEvent: {}
+[0.129005] (articubot_one) JobProgress: {'identifier': 'articubot_one', 'progress': 'build'}
+[0.138244] (articubot_one) Command: {'cmd': ['/usr/bin/cmake', '--build', '/code/articubot_one/build/articubot_one', '--', '-j12', '-l12'], 'cwd': '/code/articubot_one/build/articubot_one', 'env': OrderedDict([('HOSTNAME', 'a7a037cba3ff'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/aarch64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/code/articubot_one/install'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', '10.22.48.243:0.0'), ('LANG', 'en_US.UTF-8'), ('AMENT_PREFIX_PATH', '/code/articubot_one/install/articubot_one:/opt/ros/foxy'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/code/articubot_one/build/articubot_one'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/code/articubot_one/install/articubot_one:/opt/ros/foxy')]), 'shell': False}
+[0.201082] (-) TimerEvent: {}
+[0.304103] (-) TimerEvent: {}
+[0.343414] (articubot_one) CommandEnded: {'returncode': 0}
+[0.379016] (articubot_one) JobProgress: {'identifier': 'articubot_one', 'progress': 'install'}
+[0.404972] (-) TimerEvent: {}
+[0.410473] (articubot_one) Command: {'cmd': ['/usr/bin/cmake', '--install', '/code/articubot_one/build/articubot_one'], 'cwd': '/code/articubot_one/build/articubot_one', 'env': OrderedDict([('HOSTNAME', 'a7a037cba3ff'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/aarch64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/code/articubot_one/install'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', '10.22.48.243:0.0'), ('LANG', 'en_US.UTF-8'), ('AMENT_PREFIX_PATH', '/code/articubot_one/install/articubot_one:/opt/ros/foxy'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/code/articubot_one/build/articubot_one'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/code/articubot_one/install/articubot_one:/opt/ros/foxy')]), 'shell': False}
+[0.429474] (articubot_one) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.439540] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config\n'}
+[0.475241] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/drive_bot.rviz\n'}
+[0.503486] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/empty.yaml\n'}
+[0.505126] (-) TimerEvent: {}
+[0.533587] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/gaz_ros2_ctl_use_sim.yaml\n'}
+[0.563605] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/joystick.yaml\n'}
+[0.595035] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/main.rviz\n'}
+[0.606043] (-) TimerEvent: {}
+[0.636333] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/map.rviz\n'}
+[0.673222] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/mapper_params_online_async.yaml\n'}
+[0.697146] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/my_controllers.yaml\n'}
+[0.706771] (-) TimerEvent: {}
+[0.725661] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/twist_mux.yaml\n'}
+[0.759060] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/view_bot.rviz\n'}
+[0.774119] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description\n'}
+[0.809627] (-) TimerEvent: {}
+[0.810249] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/camera.xacro\n'}
+[0.836700] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/depth_camera.xacro\n'}
+[0.858265] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/face.xacro\n'}
+[0.891472] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/gazebo_control.xacro\n'}
+[0.911165] (-) TimerEvent: {}
+[0.920447] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/inertial_macros.xacro\n'}
+[0.946153] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/lidar.xacro\n'}
+[0.971740] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/robot.urdf.xacro\n'}
+[1.001089] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/robot_core.xacro\n'}
+[1.011997] (-) TimerEvent: {}
+[1.028698] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/ros2_control.xacro\n'}
+[1.055704] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch\n'}
+[1.092229] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/ball_tracker.launch.py\n'}
+[1.113696] (-) TimerEvent: {}
+[1.121230] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/camera.launch.py\n'}
+[1.149397] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/joystick.launch.py\n'}
+[1.175739] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/launch_robot.launch.py\n'}
+[1.196369] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/launch_sim.launch.py\n'}
+[1.215312] (-) TimerEvent: {}
+[1.226834] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/online_async_launch.py\n'}
+[1.257874] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/rplidar.launch.py\n'}
+[1.287977] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/rsp.launch.py\n'}
+[1.318948] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/worlds\n'}
+[1.320877] (-) TimerEvent: {}
+[1.358712] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/worlds/empty.world\n'}
+[1.389232] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/worlds/obstacles.world\n'}
+[1.421568] (-) TimerEvent: {}
+[1.447388] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/ament_index/resource_index/package_run_dependencies/articubot_one\n'}
+[1.500175] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/ament_index/resource_index/parent_prefix_path/articubot_one\n'}
+[1.523424] (-) TimerEvent: {}
+[1.531708] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/ament_prefix_path.sh\n'}
+[1.570879] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/ament_prefix_path.dsv\n'}
+[1.598028] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/path.sh\n'}
+[1.625802] (-) TimerEvent: {}
+[1.635317] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/path.dsv\n'}
+[1.668252] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.bash\n'}
+[1.695059] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.sh\n'}
+[1.721492] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.zsh\n'}
+[1.726103] (-) TimerEvent: {}
+[1.746081] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.dsv\n'}
+[1.772614] (articubot_one) StdoutLine: {'line': b'-- Installing: /code/articubot_one/install/articubot_one/share/articubot_one/package.dsv\n'}
+[1.829237] (-) TimerEvent: {}
+[1.893698] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/ament_index/resource_index/packages/articubot_one\n'}
+[1.929226] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/cmake/articubot_oneConfig.cmake\n'}
+[1.930859] (-) TimerEvent: {}
+[1.958761] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/cmake/articubot_oneConfig-version.cmake\n'}
+[1.989210] (articubot_one) StdoutLine: {'line': b'-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/package.xml\n'}
+[2.015603] (articubot_one) CommandEnded: {'returncode': 0}
+[2.031093] (-) TimerEvent: {}
+[2.139756] (-) TimerEvent: {}
+[2.249218] (-) TimerEvent: {}
+[2.358805] (-) TimerEvent: {}
+[2.468415] (-) TimerEvent: {}
+[2.577629] (-) TimerEvent: {}
+[2.686846] (-) TimerEvent: {}
+[2.796323] (-) TimerEvent: {}
+[2.905525] (-) TimerEvent: {}
+[3.014859] (-) TimerEvent: {}
+[3.061854] (articubot_one) JobEnded: {'identifier': 'articubot_one', 'rc': 0}
+[3.092747] (-) EventReactorShutdown: {}

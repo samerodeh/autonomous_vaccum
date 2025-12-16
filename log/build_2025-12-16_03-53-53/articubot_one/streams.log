@@ -1,0 +1,53 @@
+[0.167s] Invoking command in '/code/articubot_one/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /code/articubot_one/build/articubot_one -- -j12 -l12
+[0.371s] Invoked command in '/code/articubot_one/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /code/articubot_one/build/articubot_one -- -j12 -l12
+[0.432s] Invoking command in '/code/articubot_one/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /code/articubot_one/build/articubot_one
+[0.451s] -- Install configuration: ""
+[0.462s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config
+[0.497s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/drive_bot.rviz
+[0.525s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/empty.yaml
+[0.553s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/gaz_ros2_ctl_use_sim.yaml
+[0.597s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/joystick.yaml
+[0.627s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/main.rviz
+[0.659s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/map.rviz
+[0.695s] -- Installing: /code/articubot_one/install/articubot_one/share/articubot_one/config/mapper_params_online_async.yaml
+[0.835s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/my_controllers.yaml
+[0.870s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/twist_mux.yaml
+[0.901s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/view_bot.rviz
+[0.920s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description
+[0.952s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/camera.xacro
+[0.974s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/depth_camera.xacro
+[0.996s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/face.xacro
+[1.020s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/gazebo_control.xacro
+[1.042s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/inertial_macros.xacro
+[1.064s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/lidar.xacro
+[1.086s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/robot.urdf.xacro
+[1.110s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/robot_core.xacro
+[1.133s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/ros2_control.xacro
+[1.152s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch
+[1.187s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/ball_tracker.launch.py
+[1.215s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/camera.launch.py
+[1.241s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/joystick.launch.py
+[1.279s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/launch_robot.launch.py
+[1.306s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/launch_sim.launch.py
+[1.333s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/online_async_launch.py
+[1.363s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/rplidar.launch.py
+[1.390s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/launch/rsp.launch.py
+[1.411s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/worlds
+[1.446s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/worlds/empty.world
+[1.476s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/worlds/obstacles.world
+[1.531s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/ament_index/resource_index/package_run_dependencies/articubot_one
+[1.589s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/ament_index/resource_index/parent_prefix_path/articubot_one
+[1.621s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/ament_prefix_path.sh
+[1.662s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/ament_prefix_path.dsv
+[1.692s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/path.sh
+[1.741s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/environment/path.dsv
+[1.781s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.bash
+[1.818s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.sh
+[1.846s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.zsh
+[1.873s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/local_setup.dsv
+[1.906s] -- Installing: /code/articubot_one/install/articubot_one/share/articubot_one/package.dsv
+[2.039s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/ament_index/resource_index/packages/articubot_one
+[2.080s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/cmake/articubot_oneConfig.cmake
+[2.111s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/cmake/articubot_oneConfig-version.cmake
+[2.144s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/package.xml
+[2.161s] Invoked command in '/code/articubot_one/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /code/articubot_one/build/articubot_one

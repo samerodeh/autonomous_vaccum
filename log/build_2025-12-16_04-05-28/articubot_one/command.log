@@ -1,0 +1,4 @@
+Invoking command in '/code/articubot_one/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /code/articubot_one/build/articubot_one -- -j12 -l12
+Invoked command in '/code/articubot_one/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /code/articubot_one/build/articubot_one -- -j12 -l12
+Invoking command in '/code/articubot_one/build/articubot_one': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /code/articubot_one/build/articubot_one
+Invoked command in '/code/articubot_one/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /code/articubot_one/build/articubot_one

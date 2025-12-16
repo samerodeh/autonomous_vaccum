@@ -1,0 +1,23 @@
+[0.210s] Invoking command in '/code/articubot_one/build/articubot_one': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /code/articubot_one/build/articubot_one -- -j12 -l12
+[0.562s] Invoked command in '/code/articubot_one/build/articubot_one' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /code/articubot_one/build/articubot_one -- -j12 -l12
+[0.706s] Invoking command in '/code/articubot_one/build/articubot_one': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /code/articubot_one/build/articubot_one
+[0.746s] -- Install configuration: ""
+[0.770s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config
+[0.841s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/drive_bot.rviz
+[0.889s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/empty.yaml
+[0.959s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/gaz_ros2_ctl_use_sim.yaml
+[1.010s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/joystick.yaml
+[1.058s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/main.rviz
+[1.115s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/map.rviz
+[1.197s] -- Installing: /code/articubot_one/install/articubot_one/share/articubot_one/config/mapper_params_online_async.yaml
+[1.413s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/my_controllers.yaml
+[1.486s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/twist_mux.yaml
+[1.557s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/view_bot.rviz
+[1.587s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description
+[1.658s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/camera.xacro
+[1.711s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/depth_camera.xacro
+[1.766s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/face.xacro
+[1.806s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/gazebo_control.xacro
+[1.873s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/inertial_macros.xacro
+[1.919s] -- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/lidar.xacro
+[1.936s] Invoked command in '/code/articubot_one/build/articubot_one' returned '-2': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /code/articubot_one/build/articubot_one

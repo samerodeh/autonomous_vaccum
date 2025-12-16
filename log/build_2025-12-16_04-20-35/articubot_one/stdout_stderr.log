@@ -1,0 +1,19 @@
+-- Install configuration: ""
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/drive_bot.rviz
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/empty.yaml
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/gaz_ros2_ctl_use_sim.yaml
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/joystick.yaml
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/main.rviz
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/map.rviz
+-- Installing: /code/articubot_one/install/articubot_one/share/articubot_one/config/mapper_params_online_async.yaml
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/my_controllers.yaml
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/twist_mux.yaml
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/config/view_bot.rviz
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/camera.xacro
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/depth_camera.xacro
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/face.xacro
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/gazebo_control.xacro
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/inertial_macros.xacro
+-- Up-to-date: /code/articubot_one/install/articubot_one/share/articubot_one/description/lidar.xacro
