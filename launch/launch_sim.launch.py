@@ -1,98 +1,96 @@
 import os
-
 from ament_index_python.packages import get_package_share_directory
-
-
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-
-
+from launch.substitutions import Command
+from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
+    package_name = "articubot_one"
+    pkg_share = get_package_share_directory(package_name)
 
+    world_arg = DeclareLaunchArgument(
+        'world',
+        default_value=os.path.join(pkg_share, 'worlds', 'slam_test.sdf'),
+        description='Path to world file'
+    )
+    world = LaunchConfiguration('world')
 
-    # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
-    # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
-
-    package_name='articubot_one' #<--- CHANGE ME
-
-    rsp = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
+    robot_description = ParameterValue(
+        Command([
+            "xacro ",
+            os.path.join(pkg_share, "description", "robot.urdf.xacro"),
+            " use_ros2_control:=true sim_mode:=true"
+        ]),
+        value_type=str
     )
 
-    joystick = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','joystick.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true'}.items()
+    rsp = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        parameters=[{
+            "robot_description": robot_description,
+            "use_sim_time": True
+        }],
+        output="screen"
     )
 
-    twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
-    twist_mux = Node(
-            package="twist_mux",
-            executable="twist_mux",
-            parameters=[twist_mux_params, {'use_sim_time': True}],
-            remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
-        )
-
-    gazebo_params_file = os.path.join(get_package_share_directory(package_name),'config','gazebo_params.yaml')
-
-    # Include the Gazebo launch file, provided by the gazebo_ros package
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-                    launch_arguments={'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file}.items()
-             )
-
-    # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
-                        arguments=['-topic', 'robot_description',
-                                   '-entity', 'my_bot'],
-                        output='screen')
-
-
-    diff_drive_spawner = Node(
-        package="controller_manager",
-        executable="spawner.py",
-        arguments=["diff_cont"],
+    jsp = Node(
+        package="joint_state_publisher",
+        executable="joint_state_publisher",
+        parameters=[{"use_sim_time": True}],
+        output="screen"
     )
 
-    joint_broad_spawner = Node(
-        package="controller_manager",
-        executable="spawner.py",
-        arguments=["joint_broad"],
+    gazebo = ExecuteProcess(
+        cmd=["ign", "gazebo", "-r", "-s", "--headless-rendering", world],
+        output="screen"
     )
 
+    spawn_robot = Node(
+        package="ros_ign_gazebo",
+        executable="create",
+        arguments=[
+            "-name", "articubot",
+            "-topic", "robot_description",
+            "-x", "0",
+            "-y", "0",
+            "-z", "0.1"
+        ],
+        output="screen"
+    )
 
-    # Code for delaying a node (I haven't tested how effective it is)
-    # 
-    # First add the below lines to imports
-    # from launch.actions import RegisterEventHandler
-    # from launch.event_handlers import OnProcessExit
-    #
-    # Then add the following below the current diff_drive_spawner
-    # delayed_diff_drive_spawner = RegisterEventHandler(
-    #     event_handler=OnProcessExit(
-    #         target_action=spawn_entity,
-    #         on_exit=[diff_drive_spawner],
-    #     )
-    # )
-    #
-    # Replace the diff_drive_spawner in the final return with delayed_diff_drive_spawner
+    bridge = Node(
+        package="ros_ign_bridge",
+        executable="parameter_bridge",
+        arguments=[
+            "/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist",
+            "/odom@nav_msgs/msg/Odometry[ignition.msgs.Odometry",
+            "/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock",
+            "/scan@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan",
+            "/camera/image_raw@sensor_msgs/msg/Image[ignition.msgs.Image",
+            "/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo",
+        ],
+        output="screen",
+        parameters=[{'use_sim_time': True}]
+    )
 
+    ekf = Node(
+        package="robot_localization",
+        executable="ekf_node",
+        name="ekf_filter_node",
+        parameters=[os.path.join(pkg_share, 'config', 'ekf.yaml')],
+        output="screen"
+    )
 
-
-    # Launch them all!
     return LaunchDescription([
-        rsp,
-        joystick,
-        twist_mux,
+        world_arg,
         gazebo,
-        spawn_entity,
-        diff_drive_spawner,
-        joint_broad_spawner
+        rsp,
+        jsp,
+        TimerAction(period=3.0, actions=[spawn_robot]),
+        TimerAction(period=5.0, actions=[bridge]),
+        TimerAction(period=6.0, actions=[ekf]),
     ])
